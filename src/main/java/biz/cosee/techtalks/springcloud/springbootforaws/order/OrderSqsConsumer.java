@@ -5,6 +5,7 @@ import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,9 @@ public class OrderSqsConsumer {
 
     private final ObjectMapper mapper;
     private final AmazonSQS amazonSQS;
+
+    @Value("${aws.sqs.name.order}")
+    private String queueName;
 
     public OrderSqsConsumer(ObjectMapper mapper, AmazonSQS amazonSQS) {
         this.mapper = mapper;
@@ -35,10 +39,11 @@ public class OrderSqsConsumer {
         }
     }
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 5000, initialDelay = 2000)
     public void consumeOrderSqs() {
+        log.info("Attempting to receive messages from SQS '"+ queueName + "'");
 
-        ReceiveMessageResult result = amazonSQS.receiveMessage("queueName");
+        ReceiveMessageResult result = amazonSQS.receiveMessage(queueName);
 
         List<Message> messages = result.getMessages();
         if(!messages.isEmpty()) {
