@@ -216,11 +216,12 @@
                 }],
                 "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
                     "#!/bin/bash\n",
+                    "sudo yum install -y java-1.8.0-openjdk\n",
+                    "sudo yum remove -y java-1.7.0-openjdk\n",
                     "cd /home/ec2-user\n",
-                    "wget https://s3-eu-west-1.amazonaws.com/cosee-techtalk-applications/spring-boot-for-aws-1.0.0-BUILD.jar -O application.jar","\n",
+                    "aws s3 cp s3://cosee-techtalk-applications/spring-boot-for-aws-0.0.1-SNAPSHOT.jar application.jar\n",
                     "nohup java -jar application.jar > application.log & \n",
-                    "\n"
-                ]]}}
+                    "\n"                ]]}}
             }
         }
     }

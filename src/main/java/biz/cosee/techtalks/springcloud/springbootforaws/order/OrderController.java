@@ -1,4 +1,4 @@
-package com.cosee.springbootforaws;
+package biz.cosee.techtalks.springcloud.springbootforaws.order;
 
 import com.google.common.collect.ImmutableList;
 import org.springframework.web.bind.annotation.PostMapping;

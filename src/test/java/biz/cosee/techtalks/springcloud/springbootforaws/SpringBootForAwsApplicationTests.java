@@ -1,4 +1,4 @@
-package com.cosee.springbootforaws;
+package biz.cosee.techtalks.springcloud.springbootforaws;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

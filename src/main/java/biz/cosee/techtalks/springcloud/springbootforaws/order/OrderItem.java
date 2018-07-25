@@ -1,4 +1,4 @@
-package com.cosee.springbootforaws;
+package biz.cosee.techtalks.springcloud.springbootforaws.order;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

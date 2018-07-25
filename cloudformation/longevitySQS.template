@@ -1,0 +1,11 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Stack that is independent of application stack",
+  "Resources": {
+    "OrderQueue": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+      }
+    }
+  }
+}

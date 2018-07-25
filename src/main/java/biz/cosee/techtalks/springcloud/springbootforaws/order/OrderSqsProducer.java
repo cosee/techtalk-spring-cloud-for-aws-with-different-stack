@@ -1,4 +1,4 @@
-package com.cosee.springbootforaws;
+package biz.cosee.techtalks.springcloud.springbootforaws.order;
 
 import com.amazonaws.services.sqs.AmazonSQSAsync;
 import org.springframework.beans.factory.annotation.Value;
