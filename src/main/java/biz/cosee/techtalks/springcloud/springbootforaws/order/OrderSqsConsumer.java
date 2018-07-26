@@ -27,18 +27,6 @@ public class OrderSqsConsumer {
         this.amazonSQS = amazonSQS;
     }
 
-    private Order mapPayloadToOrder(String payload) {
-        return mapToMessage(payload, Order.class);
-    }
-
-    private <T> T mapToMessage(String payload, Class<T> clazz) {
-        try {
-            return mapper.readValue(payload, clazz);
-        } catch (IOException e) {
-            throw new RuntimeException("Could not parse payload from SQS.", e);
-        }
-    }
-
     @Scheduled(fixedRate = 5000, initialDelay = 2000)
     public void consumeOrderSqs() {
         log.info("Attempting to receive messages from SQS '"+ queueName + "'");
@@ -57,6 +45,18 @@ public class OrderSqsConsumer {
             log.info("No orders in queue.");
         }
 
+    }
+
+    private Order mapPayloadToOrder(String payload) {
+        return mapToMessage(payload, Order.class);
+    }
+
+    private <T> T mapToMessage(String payload, Class<T> clazz) {
+        try {
+            return mapper.readValue(payload, clazz);
+        } catch (IOException e) {
+            throw new RuntimeException("Could not parse payload from SQS.", e);
+        }
     }
 
 }
