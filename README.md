@@ -29,6 +29,9 @@ aws cloudformation create-stack \
 
 
 Repositories with applications from this Talk:
+
 https://github.com/cosee/techtalk-spring-cloud-for-aws
+
 https://github.com/cosee/techtalk-spring-boot-for-aws
+
 https://github.com/cosee/techtalk-spring-cloud-for-aws-with-different-stack
