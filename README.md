@@ -27,6 +27,8 @@ aws cloudformation create-stack \
 --template-url \<PATH_TO_CLOUDFORMATION_TEMPLATE_IN_S3> \
 --capabilities CAPABILITY_IAM
 
+Presentation of the code and application (in german):
+https://vimeo.com/282634942
 
 Repositories with applications from this Talk:
 
